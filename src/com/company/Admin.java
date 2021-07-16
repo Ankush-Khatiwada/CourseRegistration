@@ -19,17 +19,36 @@ class Courses extends Admin{
 
   Scanner sc = new Scanner(System.in);
 
+  int select;
 
+  public void courseUI() throws IOException {
+
+
+      System.out.println("Please select the option \n1.Add COurse \n2.Cancel COure");
+      select =sc.nextInt();
+
+      if (select == 1){
+
+          addCourse();
+      }else {
+
+          cancelCourse();
+      }
+
+
+
+  }
 
     public void addCourse() throws IOException {
         File f = new File("course.txt");
-        FileWriter fw = new FileWriter("course.txt");
+        FileWriter fw = new FileWriter(f);
+        Scanner coursescan=new Scanner(System.in);
 
         ArrayList course = new ArrayList();
 
 
-        System.out.println("ENter the name of course");
-        course.add(sc.nextLine());
+        System.out.println("Enter the name of course");
+        course.add(coursescan.nextLine());
 
 
       for (int counter=0;counter<course.size(); counter++){
@@ -52,7 +71,7 @@ class Courses extends Admin{
 
         ArrayList removed = new ArrayList();
 
-            System.out.println(" Enter the name of the course you want to remove  :");
+            System.out.println(" Enter the name of the course you want to cancel  :");
             removed.add(sc.nextLine());
 
 

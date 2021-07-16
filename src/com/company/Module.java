@@ -18,7 +18,7 @@ public class Module  extends Courses{
     public  void Level4Modules() throws IOException {
 
         sc = new Scanner(System.in);
-        file = new File(moduleName= sc.nextLine());
+        file = new File("BITLevel4.txt");
         fw=new FileWriter(file,true);
         PrintWriter pw = new PrintWriter(fw);
 
@@ -31,7 +31,7 @@ public class Module  extends Courses{
 
         }
 
-        fw.write(moduleName+"is taught by"+Instructor+"\n");
+        fw.write(moduleName+" is  \t"+" taught by"+" "+Instructor+"\n\n");
 
         fw.close();
 
@@ -107,11 +107,42 @@ public class Module  extends Courses{
 
     }
 
-    public static void main(String[] args) throws IOException {
-       Module m = new Module();
-       m.Level6Modules();
+
+    public void changeModule() {
+        String[] Module = {"WebDevelopment", "Embedded System", "Data Analysis"};
+        String module;
+        System.out.println("****Chsnge Module Name" + Module);
+        Scanner sc = new Scanner(System.in);
+
+
+        for (int i = 0; i < Module.length; i++) {
+
+            if (Module[i].equals("WebDevelopment")) {
+
+                Module[i] = "Introduction to HTML and CSS";
+            }
+            if (Module[i].equals("Embedded System")) {
+
+                Module[i] = "IoT";
+
+
+            }
+            if (Module[i].equals("Data Analysis")) {
+
+                Module[i] = "Explotary Data Analysis";
+
+            }
+
+            System.out.println(Module[i]);
+        }
+
+
+        System.out.println("Course updated sucessfully");
     }
 
+    public static void main(String[] args) throws IOException {
 
-
+        Module modules= new Module();
+        modules.Level5Modules();
+    }
 }

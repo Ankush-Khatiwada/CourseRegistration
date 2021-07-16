@@ -1,9 +1,6 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 
 public class Student {
@@ -14,13 +11,9 @@ public class Student {
     private int id;
     private int level;
     private String Course;
+    Scanner optionalScan;
 
-    public static void main(String[] args) throws IOException {
 
-        Student student = new Student();
-        student.register();
-
-    }
 
     public void studentUI() throws NoSuchMethodException, IOException {
         scan = new Scanner(System.in);
@@ -40,7 +33,7 @@ public class Student {
 
         if (input == 2) {
 
-            viewModulesofEachLevel();
+
 
         }
 
@@ -80,6 +73,30 @@ public class Student {
         System.out.println("Enter your level");
         level = scan.nextInt();
 
+        if(level== 6){
+
+            optionalScan = new Scanner(System.in);
+            File f= new File("Ootional.txt");
+            try{
+                if (!file.exists()){
+
+                    f.createNewFile();
+                }
+            }catch(Exception e){
+
+                e.printStackTrace();
+            }
+            System.out.println("Please select the optional module of your Choice \n1.Robotics \n2.Game Development");
+
+            FileWriter optionalFile = new FileWriter(f);
+           optionalFile.write(String.valueOf(f));
+
+
+
+
+
+
+        }
         System.out.println("Your name is" + name + "Your id is " + id + "And your desired course is" + Course);
 
         pw.write("\tName: \t" + name + "\t ID:  \t" + id + " \tCourse\t " + Course + "\n" + System.lineSeparator());
@@ -90,16 +107,127 @@ public class Student {
 
     }
 
-    public void viewModulesofEachLevel() {
+    public void viewModulesandInstructions() throws IOException {
 
+        Scanner scan = new Scanner(System.in);
         System.out.println("View Your Modules");
+        System.out.println("Select your level");
+
+        int select = scan.nextInt();
+
+        if(select==4){
+
+            try {
+                FileInputStream fileinput = new FileInputStream("BITLevel4.txt");
+
+                BufferedInputStream input = new BufferedInputStream(fileinput);
+
+                int i = input.read();
+
+                while (i != -1) {
+
+                    System.out.print((char) i);
+
+                    i = input.read();
+
+                }
+                input.close();
+
+            }catch (Exception e){
+
+                e.printStackTrace();
+            }
+
+
+        }
+
+        if(select==5){
+
+            try {
+                FileInputStream fileinput = new FileInputStream("BITLevel5.txt");
+
+                BufferedInputStream input = new BufferedInputStream(fileinput);
+
+                int i = input.read();
+
+                while (i != -1) {
+
+                    System.out.print((char) i);
+
+                    i = input.read();
+
+                }
+                input.close();
+
+            }catch (Exception e){
+
+                e.printStackTrace();
+            }
+
+
+        }
+
+
+        if(select==4){
+
+            try {
+                FileInputStream fileinput = new FileInputStream("BITLevel6.txt");
+
+                BufferedInputStream input = new BufferedInputStream(fileinput);
+
+                int i = input.read();
+
+                while (i != -1) {
+
+                    System.out.print((char) i);
+
+                    i = input.read();
+
+                }
+                input.close();
+
+            }catch (Exception e){
+
+                e.printStackTrace();
+            }
+
+
+        }
+
+
 
 
     }
 
-    public void viewResult() {
+    public void viewResult() throws FileNotFoundException {
 
-        System.out.println("View your Result Here");
+        Scanner sc = new Scanner(System.in);
 
+
+        System.out.println("Enter Your Name to view result");
+        String name = sc.nextLine();
+
+        try {
+            File resultFile = new File(name);
+            FileReader resultReader= new FileReader(resultFile);
+
+            if (!resultFile.exists()){
+
+                resultFile.createNewFile();
+            }
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+
+
+
+    }
+
+    public static void main(String[] args) throws IOException {
+
+
+        Student stu= new Student();
+        stu.viewResult();
     }
 }

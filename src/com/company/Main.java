@@ -39,12 +39,14 @@ public class Main {
 
            Admin ad = new Admin();
           Courses c = new Courses();
-          c.addCourse();
+          c.courseUI();
 
         }
 
         if (input == 3) {
 
+            Instructor ins= new Instructor();
+            ins.giveMarks();
 
         }
 
