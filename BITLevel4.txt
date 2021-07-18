@@ -1,2 +1,4 @@
-Javais taught byDipson SHrestha
-Pythonis taught byKamlesh Shrestha
+Python is   taught by Rizzu SHrestha
+Java is   taught by Sachit Tandukar
+Web Development is   taught by Dipson SHrestha
+Networking is   taught by Kritika Tuladhar

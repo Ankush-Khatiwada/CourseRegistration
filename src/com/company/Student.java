@@ -8,7 +8,7 @@ public class Student {
     int input;
     Scanner scan;
     private String name;
-    private int id;
+    private String id;
     private int level;
     private String Course;
     Scanner optionalScan;
@@ -34,6 +34,7 @@ public class Student {
         if (input == 2) {
 
 
+            viewModulesandInstructions();
 
         }
 
@@ -65,49 +66,102 @@ public class Student {
         System.out.println("Enter your name");
         name = scan.next();
 
-        System.out.println("Enter your ID");
-        id = scan.nextInt();
-        System.out.println("Enter the name of your Desired Course");
-        Course = scan.next();
+        try {
+            System.out.println("Enter your ID");
+            id = scan.next();
 
-        System.out.println("Enter your level");
-        level = scan.nextInt();
+        }catch(Exception e){
 
-        if(level== 6){
-
-            optionalScan = new Scanner(System.in);
-            File f= new File("Ootional.txt");
-            try{
-                if (!file.exists()){
-
-                    f.createNewFile();
-                }
-            }catch(Exception e){
-
-                e.printStackTrace();
-            }
-            System.out.println("Please select the optional module of your Choice \n1.Robotics \n2.Game Development");
-
-            FileWriter optionalFile = new FileWriter(f);
-           optionalFile.write(String.valueOf(f));
-
-
-
-
-
+            System.out.println("Enter integer value ");
 
         }
-        System.out.println("Your name is" + name + "Your id is " + id + "And your desired course is" + Course);
 
-        pw.write("\tName: \t" + name + "\t ID:  \t" + id + " \tCourse\t " + Course + "\n" + System.lineSeparator());
+        System.out.println("These are Canceled course for this year");
 
-        pw.close();
-        pw.println("Name=" + name + " Course Enrolled: " + Course);
+
+        System.out.println("The available course are");
+        Courses c = new Courses();
+        c.viewCourse();
+        System.out.println("Enter the name of your Desired Course");
+        Course = scan.next();
+        String avialableCourses = "BIT";
+
+        if(Course.equals("BIT")){
+
+
+            System.out.println("Enter your level");
+            level = scan.nextInt();
+
+            if(level== 6){
+
+                optionalScan = new Scanner(System.in);
+                File f= new File("StudentCourse.txt");
+                FileWriter filew = new FileWriter(f,true);
+                try{
+                    if (!file.exists()){
+
+                        f.createNewFile();
+                    }
+
+
+                    System.out.println("Please Enter the optional module of your Choice \n1.Robotics \n2.Game Development");
+                    String optional = optionalScan.nextLine();
+
+                    System.out.println("Your name is" + name + "Your id is " + id + "And your desired course is" + Course +"\t"+"Your level is:"+level+"And you took optional Course"+optional);
+
+
+
+
+                    filew.write("\tName: \t" + name + "\t ID:  \t" + id + " \tCourse\t " + Course + "" + "\tLevel\t"+level+"Optional"+optional+System.lineSeparator());
+
+
+                    filew.close();
+                }catch(Exception e){
+
+                    e.printStackTrace();
+                }
+
+
+
+
+
+
+
+
+            }else {
+
+                System.out.println("Your name is" + name + "Your id is " + id + "And your desired course is" + Course +"\t"+"Your level is:"+level);
+
+
+                pw.write("\tName: \t" + name + "\t ID:  \t" + id + " \tCourse\t " + Course + "" + "\tLevel\t"+level+"Optional"+System.lineSeparator() );
+
+
+                pw.close();
+                pw.println("Name=" + name + " Course Enrolled: " + Course);
+
+
+
+
+
+            }
+
+            pw.close();
+            pw.println("Name=" + name + " Course Enrolled: " + Course);
+
+
+
+
+        }else {
+
+            System.out.println("Sorry the course you typed is Not present at the Moment");
+        }
+
+
 
 
     }
 
-    public void viewModulesandInstructions() throws IOException {
+    public void viewModulesandInstructions() throws IOException, NoSuchMethodException {
 
         Scanner scan = new Scanner(System.in);
         System.out.println("View Your Modules");
@@ -168,7 +222,7 @@ public class Student {
         }
 
 
-        if(select==4){
+        if(select==6){
 
             try {
                 FileInputStream fileinput = new FileInputStream("BITLevel6.txt");
@@ -195,39 +249,47 @@ public class Student {
         }
 
 
-
+        studentUI();
 
     }
 
-    public void viewResult() throws FileNotFoundException {
+    public void viewResult() throws IOException, NoSuchMethodException {
 
-        Scanner sc = new Scanner(System.in);
-
-
-        System.out.println("Enter Your Name to view result");
-        String name = sc.nextLine();
+        Scanner result= new Scanner(System.in);
+        String name = null;
+       
 
         try {
-            File resultFile = new File(name);
-            FileReader resultReader= new FileReader(resultFile);
+            // create a new file object
+            System.out.println("Enter your Name:\n");
+            name= result.nextLine();
+            File file = new File(name+".txt");
 
-            if (!resultFile.exists()){
 
-                resultFile.createNewFile();
+            // create an object of Scanner
+            // associated with the file
+            Scanner sc = new Scanner(file);
+
+            // read each line from file and print it
+
+            while(sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
             }
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
+
+            // close scanner
+            sc.close();
+        } catch (Exception e) {
+            e.getStackTrace();
         }
 
-
-
-
+        studentUI();
     }
 
     public static void main(String[] args) throws IOException {
 
-
-        Student stu= new Student();
-        stu.viewResult();
+        Student st = new Student();
+        st.register();
     }
+
+
 }

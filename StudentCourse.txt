@@ -1,0 +1,4 @@
+	Name: 	Anil	 ID:  	Ghimire 	Course	 BIT	Level	6OptionalRobotics
+	Name: 	Ajay	 ID:  	Adhikari 	Course	 BIT	Level	6OptionalRobotics
+	Name: 	ANkush	 ID:  	79 	Course	 BIT	Level	6OptionalGame Development
+	Name: 	Ankush	 ID:  	690 	Course	 BIT	Level	4Optional

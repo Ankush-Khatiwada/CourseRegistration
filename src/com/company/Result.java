@@ -23,6 +23,7 @@ public class Result {
     public void ResultUI() throws FileNotFoundException {
         sc = new Scanner(System.in);
 
+        System.out.println("Welcome Instructore please give marks to the students");
         System.out.println("Enter the Name of student");
         studentName = sc.next();
         System.out.println("Enter the Student ID");
@@ -74,7 +75,7 @@ public class Result {
 
                 System.out.println("Congratulation you are promoted to next Semester");
             }
-            pw.write(studentName + " \n" + courseName + "\n" + level + "\n" + JavaMarks + "\n" + PythonMarks + "\n" + Grade);
+            pw.write("Name:"+studentName + " \nCourse:" + courseName + "\nLevel:" + level + "\nJavaMarks:" + JavaMarks + "\nPythonMarks:" + PythonMarks + "\nTotalGrade:" + Grade);
             pw.close();
 
 
@@ -137,14 +138,16 @@ public class Result {
             int Grade = total / 4;
             System.out.println("Your Percentage is : " + Grade + "%");
 
-            if (Grade <= 39) {
+            if (Grade  <=39) {
 
                 System.out.println("Sorry you are not promoted to next Semester");
+                pw.write("You Need to give resit on the module you have grade less than 39");
             } else {
 
                 System.out.println("Congratulation you are promoted to next Semester");
+                pw.write("Congratulations You are promoted to next semester");
             }
-            pw.write(studentName + " \n" + courseName + "\n" + level + "\n" + JavaMarks + "\n" + PythonMarks + "\n" + Grade);
+            pw.write("Name:"+studentName + " \nCourse:" + courseName + "\nLevel:\n" + level + "\nJavaMarks:\n" + JavaMarks + "\nPythonMarks:\n" + PythonMarks + "\nTotalGrade:\n" + Grade);
             pw.close();
 
 
@@ -152,4 +155,6 @@ public class Result {
 
 
     }
+
+
 }

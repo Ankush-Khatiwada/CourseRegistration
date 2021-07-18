@@ -7,35 +7,38 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Module  extends Courses{
+public class Module extends Admin {
 
     Scanner sc;
     String moduleName;
     String Instructor;
     FileWriter fw;
     File file;
+    File Level5file;
+    ArrayList level4Module;
 
     public  void Level4Modules() throws IOException {
 
         sc = new Scanner(System.in);
-        file = new File("BITLevel4.txt");
-        fw=new FileWriter(file,true);
+        Level5file = new File("BITLevel4.txt");
+        fw=new FileWriter(Level5file,true);
         PrintWriter pw = new PrintWriter(fw);
 
-        for (int i=4;i<5;i++){
 
-            System.out.println("Enter the name of module");
-            moduleName = sc.nextLine();
-            System.out.println("Enter the name of instructor");
-            Instructor= sc.nextLine();
 
-        }
+        System.out.println("Enter the name of module");
+        moduleName = sc.nextLine();
+        System.out.println("Enter the name of instructor");
+        Instructor= sc.nextLine();
 
-        fw.write(moduleName+" is  \t"+" taught by"+" "+Instructor+"\n\n");
+
+
+        fw.write(moduleName+" is  "+" taught by"+" "+Instructor+"\n");
 
         fw.close();
 
-        System.out.println(moduleName+" "+Instructor);
+
+
 
 
 
@@ -48,27 +51,22 @@ public class Module  extends Courses{
     public  void Level5Modules() throws IOException {
 
         sc = new Scanner(System.in);
-        file = new File("BITLevel5.txt");
-        fw=new FileWriter(file,true);
+        Level5file = new File("BITLevel5.txt");
+        fw=new FileWriter(Level5file,true);
         PrintWriter pw = new PrintWriter(fw);
 
-        for (int i=4;i<5;i++){
+
 
             System.out.println("Enter the name of module");
             moduleName = sc.nextLine();
             System.out.println("Enter the name of instructor");
             Instructor= sc.nextLine();
 
-        }
 
-        fw.write(moduleName+"is taught by"+Instructor+"\n");
 
+        fw.write(moduleName+" is "+" taught by"+" "+Instructor+"\n");
 
         fw.close();
-
-        System.out.println(moduleName+" "+Instructor);
-
-
 
 
 
@@ -92,16 +90,11 @@ public class Module  extends Courses{
 
 
 
-
-        fw.write(moduleName+" is  \t"+" taught by"+" "+Instructor+"\n\n");
+        fw.write(moduleName+" is "+" taught by"+" "+Instructor+"\n");
 
         fw.close();
 
         System.out.println(moduleName+" "+Instructor);
-
-
-
-
 
 
 
@@ -137,12 +130,14 @@ public class Module  extends Courses{
         }
 
 
-        System.out.println("Course updated sucessfully");
+        System.out.println("Module changeed sucessfully");
     }
 
     public static void main(String[] args) throws IOException {
 
-        Module modules= new Module();
-        modules.Level5Modules();
+
+        Module m = new Module();
+        m.Level5Modules();
     }
+
 }

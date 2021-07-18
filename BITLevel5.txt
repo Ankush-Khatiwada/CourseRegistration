@@ -1,1 +1,4 @@
-Collaborative Developmentis taught byBiraj Dulal
+Software Engineering is  taught by MAnish Deuja
+Collaborative Development is  taught by Biraj DUlal
+Cloud COmputing is  taught by Saroj SHarma
+HCI is  taught by Sachit Man Sherchan

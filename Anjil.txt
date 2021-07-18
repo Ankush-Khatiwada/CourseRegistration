@@ -1,0 +1,10 @@
+Name:Anjil 
+Course:BIT
+Level:
+4
+JavaMarks:
+80
+PythonMarks:
+90
+TotalGrade:
+87

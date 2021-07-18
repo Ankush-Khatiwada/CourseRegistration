@@ -1,0 +1,10 @@
+Name:Bijay 
+Course:BIT
+Level:
+4
+JavaMarks:
+90
+PythonMarks:
+90
+TotalGrade:
+90

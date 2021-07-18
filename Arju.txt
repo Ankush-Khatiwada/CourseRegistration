@@ -1,0 +1,10 @@
+Congratulations You are promoted to next semesterName:Arju 
+Course:BIT
+Level:
+6
+JavaMarks:
+90
+PythonMarks:
+80
+TotalGrade:
+87
